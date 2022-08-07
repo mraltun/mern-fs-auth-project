@@ -6,13 +6,13 @@ const Dashboard = () => {
   const navigate = useNavigate();
 
   const populateQuote = async () => {
-    const request = await fetch("http://localhost:8000/api/v1/quote", {
+    const req = await fetch("http://localhost:8000/api/v1/quote", {
       headers: {
         "x-access-token": localStorage.getItem("token"),
       },
     });
 
-    const data = request.json();
+    const data = req.json();
   };
 
   useEffect(() => {
