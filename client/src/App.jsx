@@ -5,7 +5,22 @@ const App = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const registerUser = async (e) => {};
+  const registerUser = async (e) => {
+    e.preventDefault();
+    const response = await fetch("http://localhost:8000/api/v1/register", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        name,
+        email,
+        password,
+      }),
+    });
+    const data = await response.json();
+    console.log(data);
+  };
 
   return (
     <div>
